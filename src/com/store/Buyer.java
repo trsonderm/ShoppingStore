@@ -42,8 +42,8 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        
-        buyButton.setVisible(false);
+
+        purchaseButton.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -58,7 +58,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         jScrollPane2 = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
         priceLabel = new javax.swing.JLabel();
-        buyButton = new javax.swing.JButton();
+        purchaseButton = new javax.swing.JButton();
         quantityLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -104,14 +104,14 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         priceLabel.setText(" ");
 
-        buyButton.setText("Add To Cart");
-        buyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buyButtonActionPerformed(evt);
+        purchaseButton.setText("Add To Cart");
+        purchaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent event) {
+                purchaseButtonActionPerformed(event);
             }
         });
 
-        quantityLabel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        quantityLabel.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         quantityLabel.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -129,7 +129,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buyButton)))
+                        .addComponent(purchaseButton)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,7 +143,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buyButton)
+                    .addComponent(purchaseButton)
                     .addComponent(quantityLabel))
                 .addContainerGap())
         );
@@ -223,7 +223,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             titleLabel.setText("");
             priceLabel.setText("");
             descriptionTextArea.setText("");
-            buyButton.setVisible(false);
+            purchaseButton.setVisible(false);
             currentItemID = inventory.getItemID(productList.getSelectedIndex());
             updateProductDetails(currentItemID);
         }
@@ -241,13 +241,15 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             int quantityAvailable = quantityInInventory - quantityInCart;
 
             quantityLabel.setText("Quantity in stock: " + quantityAvailable);
-            if (quantityAvailable > 0)
-                buyButton.setVisible(true);
-            else
-                buyButton.setVisible(false);
+            if (quantityAvailable > 0) {
+                purchaseButton.setVisible(true);
+            }
+            else {
+                purchaseButton.setVisible(false);
+            }
     }
     
-    private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
+    private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
         int quantityInCart = cart.getQuantity(currentItemID);
         if (quantityInCart != 0)
             cart.increment(currentItemID, 1);
@@ -257,7 +259,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         }
         updateProductDetails(currentItemID);
         updateCartLabel();
-    }//GEN-LAST:event_buyButtonActionPerformed
+    }//GEN-LAST:event_purchaseButtonActionPerformed
 
     
     private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
@@ -315,7 +317,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buyButton;
+    private javax.swing.JButton purchaseButton;
     private javax.swing.JButton cartButton;
     private javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JButton jButton1;
