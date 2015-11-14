@@ -179,6 +179,7 @@ public class AddItem extends javax.swing.JFrame {
                 product.description = description;
                 product.cost = cost;
                 product.price = price;
+                product.quantity = quantity;
                 inventory.addItem(product, quantity);
                 for (AddItemListener hl : listeners)
                     hl.newItemAdded();

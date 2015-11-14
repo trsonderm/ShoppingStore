@@ -12,6 +12,7 @@ public class ShoppingCart extends ProductList{
     public static ShoppingCart getCart() {
         if(shoppingCart == null) {
             shoppingCart = new ShoppingCart();
+
         }
         return shoppingCart;
     }

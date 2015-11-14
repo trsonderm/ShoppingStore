@@ -17,12 +17,22 @@ public class MainScreen extends javax.swing.JFrame {
         inventory = StoreInventory.getInstance();
         cart = ShoppingCart.getCart();
         sold = Sold.getInstance();
-        Archive archive = new Archive();
+        this.archive = new Archive();
         fillInventory();
     }
 
     private void fillInventory() {
-       // archive.loadData();
+        archive.loadData();
+        /*Product test = new Product();
+        test.sku = 0;
+        test.cost = 5;
+        test.name = "Thomas";
+        test.price = 6;
+        test.description = "blah";
+
+        inventory.addItem(test,3);
+        archive.saveData();*/
+
 
     }
 

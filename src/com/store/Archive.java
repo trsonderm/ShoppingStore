@@ -11,14 +11,23 @@ interface ArchiveAction {
     public void loadData();
 }
 public class Archive implements ArchiveAction{
+    private StoreInventory storeInventory;
+    public Product[] recoveredCart;
+    public Archive()
+    {
+        this.storeInventory = StoreInventory.getInstance();
+
+    }
+
     public void saveData()
     {
-        ShoppingCart tempCart = ShoppingCart.getCart();
+
+        Product[] sInventory = storeInventory.getProductListing();
         try{
 
             FileOutputStream fout = new FileOutputStream("cart.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fout);
-            oos.writeObject(tempCart);
+            oos.writeObject(sInventory);
             oos.close();
             System.out.println("Done");
 
@@ -26,7 +35,7 @@ public class Archive implements ArchiveAction{
             ex.printStackTrace();
         }
 
-    };
+    }
     public void loadData(){
         ShoppingCart tempCart = ShoppingCart.getCart();
 
@@ -36,10 +45,13 @@ public class Archive implements ArchiveAction{
                 ObjectInput input = new ObjectInputStream (buffer);
         ){
             //deserialize the List
-            List<String> recoveredCart = (List<String>)input.readObject();
+            recoveredCart = (Product[])input.readObject();
             //display its data
-            for(String product: recoveredCart){
-                System.out.println("Recovered String: " + product);
+            for(Product o: recoveredCart) {
+
+
+                storeInventory.addItem(o,o.quantity);
+
             }
         }
         catch(ClassNotFoundException ex){

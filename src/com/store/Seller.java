@@ -23,7 +23,7 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
         inventory = StoreInventory.getInstance();
         cart = ShoppingCart.getCart();
         sold = Sold.getInstance();
-        Archive archive = new Archive();
+        archive = new Archive();
 
         updateInventoryList();
         updateFinancials();
@@ -309,7 +309,7 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
             titleLabel.setText("");
             priceLabel.setText("");
             descriptionTextArea.setText("");
-            currentItemID = inventory.getItemID(productList.getSelectedIndex());
+            currentItemID = inventory.getProductID(productList.getSelectedIndex());
             minusButton.setEnabled(true);
             updateProductDetails(currentItemID);
             downButton.setEnabled(true);
@@ -356,7 +356,7 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
     public void newItemAdded() {
         updateInventoryList();
         updateFinancials();
-        //archive.saveData();
+        archive.saveData();
     }
 
     private void updateProductDetails (int itemID) {

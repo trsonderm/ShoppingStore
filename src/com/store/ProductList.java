@@ -13,10 +13,12 @@ import java.util.Map;
 
 public class ProductList {
     private ArrayList<Map<String, Object>> items;
+    public ArrayList<Map<String, Object>> productsToLoad;
 
     int currentIteratorID;
 
     protected ProductList() {
+
         items = new ArrayList<>();
         resetIterator();
     }
@@ -25,29 +27,30 @@ public class ProductList {
         items.removeAll(items);
     }
 
-    private int getNewItemID() {
+    private int getNewProductID() {
         int newItemID = -1;
         for (int i = 0; i < items.size(); i++) {
             Map<String, Object> tempItemsItem = items.get(i);
-            Product tempItem = (Product)tempItemsItem.get("item");
-            if (tempItem.sku > newItemID)
-                newItemID = tempItem.sku;
+            Product tempProduct = (Product)tempItemsItem.get("item");
+            if (tempProduct.sku > newItemID)
+                newItemID = tempProduct.sku;
         }
         newItemID++;
         return newItemID;
     }
 
     public void addItem(Product itemToAdd, int quantityToAdd) {
-        int newItemID = getNewItemID();
-        Map<String, Object> itemForItems = new HashMap<>();
-        itemForItems.put("ID", newItemID);
-        itemForItems.put("item", itemToAdd);
-        itemForItems.put("quantity", quantityToAdd);
-        items.add(itemForItems);
+        int newID = getNewProductID();
+        Map<String, Object> newItem = new HashMap<>();
+        newItem.put("ID", newID);
+        newItem.put("item", itemToAdd);
+        newItem.put("quantity", quantityToAdd);
+        items.add(newItem);
+        //Item added
     }
 
     public void removeItem(int itemID) {
-        int index = getIndexForItem(itemID);
+        int index = getIndexForProduct(itemID);
         items.remove(index);
     }
 
@@ -76,13 +79,13 @@ public class ProductList {
         return quantity;
     }
 
-    private int getIndexForItem(int itemIDtoFind) {
+    private int getIndexForProduct(int productIDtoFind) {
         int indexToReturn = -1;
         for (int i = 0; i < items.size(); i ++) {
-            Map<String, Object> tempCartItem = items.get(i);
-            Product tempItem = (Product)tempCartItem.get("item");
-            int tempID = (int)tempItem.sku;
-            if (itemIDtoFind == tempID) {
+            Map<String, Object> tempCartProduct = items.get(i);
+            Product tempProduct = (Product)tempCartProduct.get("item");
+            int productID = (int)tempProduct.sku;
+            if (productIDtoFind == productID) {
                 indexToReturn = i;
                 i = items.size();
             }
@@ -91,7 +94,7 @@ public class ProductList {
     }
 
     public void decrement(int itemIDtoDecrement, int quantityToDecrementBy) {
-        int index = getIndexForItem(itemIDtoDecrement);
+        int index = getIndexForProduct(itemIDtoDecrement);
         if (index > -1) {
             Map<String, Object> tempCartItem = items.get(index);
             Product tempItem = (Product)tempCartItem.get("item");
@@ -110,7 +113,7 @@ public class ProductList {
     }
 
     public void increment(int itemIDtoIncrement, int quantityToIncrementBy) {
-        int index = getIndexForItem(itemIDtoIncrement);
+        int index = getIndexForProduct(itemIDtoIncrement);
         if (index > -1) {
             Map<String, Object> tempCartItem = items.get(index);
             int quantity = (int)tempCartItem.get("quantity");
@@ -134,7 +137,7 @@ public class ProductList {
         return itemToReturn;
     }
 
-    public int getItemID (int index) {
+    public int getProductID (int index) {
         int itemID = 0;
         Map<String, Object> tempItemsItem = items.get(index);
         Product tempItem = (Product)tempItemsItem.get("item");
@@ -167,6 +170,26 @@ public class ProductList {
             currentRow++;
         }
         return arrayToReturn;
+    }
+
+    public Product[] getProductListing() {
+        Product[] arrayToReturn = new Product[items.size()];
+        for (int i = 0; i < items.size(); i++) {
+            Map<String, Object> tempCartItem = items.get(i);
+            Product tempItem = (Product)tempCartItem.get("item");
+            int quantity = (int)tempCartItem.get("quantity");
+            //Product tempProduct = new Product();
+           arrayToReturn[i] = tempItem;
+        }
+        return arrayToReturn;
+    }
+
+    public void setListing(Object[][] aTempArray) {
+       for(Object o: aTempArray)
+       {
+           System.out.println(o);
+       }
+        return;
     }
 
     public double getCostTotal() {

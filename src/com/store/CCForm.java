@@ -11,6 +11,7 @@ interface PayListener {
 
 public class CCForm extends javax.swing.JFrame {
     List<PayListener> listeners = new ArrayList<>();
+    Archive archive;
 
     ShoppingCart cart;
     /**
@@ -23,6 +24,7 @@ public class CCForm extends javax.swing.JFrame {
         DecimalFormat df2 = new DecimalFormat("#0.00");
         String totalString = "$" + df2.format(total);
         totalLabel.setText(totalString);
+        archive = new Archive();
     }
     
     public void addListener(PayListener toAdd) {
@@ -190,6 +192,7 @@ public class CCForm extends javax.swing.JFrame {
             inventory.decrement(itemID, quantity);
         }
         cart.resetItems();
+        archive.saveData();
 
         for (PayListener singleListener : listeners)
             singleListener.finished();

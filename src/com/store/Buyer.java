@@ -224,7 +224,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             priceLabel.setText("");
             descriptionTextArea.setText("");
             purchaseButton.setVisible(false);
-            currentItemID = inventory.getItemID(productList.getSelectedIndex());
+            currentItemID = inventory.getProductID(productList.getSelectedIndex());
             updateProductDetails(currentItemID);
         }
     }//GEN-LAST:event_productListValueChanged
