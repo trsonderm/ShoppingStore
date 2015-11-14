@@ -6,13 +6,14 @@ import java.util.Map;
 
 /**
  *
- * @author Lana
+ * Seller class extends the AddProductdListener
  */
 public class Seller extends javax.swing.JFrame implements AddItemListener {
 
     StoreInventory inventory;
     ShoppingCart cart;
     Sold sold;
+    Archive archive;
 
     String[] inventoryListLabels;
     int currentItemID;
@@ -22,6 +23,7 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
         inventory = StoreInventory.getInstance();
         cart = ShoppingCart.getCart();
         sold = Sold.getInstance();
+        Archive archive = new Archive();
 
         updateInventoryList();
         updateFinancials();
@@ -354,6 +356,7 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
     public void newItemAdded() {
         updateInventoryList();
         updateFinancials();
+        //archive.saveData();
     }
 
     private void updateProductDetails (int itemID) {

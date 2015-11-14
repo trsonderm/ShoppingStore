@@ -174,11 +174,12 @@ public class AddItem extends javax.swing.JFrame {
                 double cost = Double.parseDouble(costField.getText());
                 double price = Double.parseDouble(priceField.getText());
                 int quantity = Integer.parseInt(quantityField.getText());
-                Product newItem = new Product();
-                newItem.description = description;
-                newItem.cost = cost;
-                newItem.price = price;
-                inventory.addItem(newItem, quantity);
+                Product product = new Product();
+                product.name = title;
+                product.description = description;
+                product.cost = cost;
+                product.price = price;
+                inventory.addItem(product, quantity);
                 for (AddItemListener hl : listeners)
                     hl.newItemAdded();
                 this.setVisible(false);

@@ -8,28 +8,28 @@ interface CartListener {
     public void cartExited();
 }
 
-public class CartView extends javax.swing.JFrame implements CCFormListener {
+public class CartView extends javax.swing.JFrame implements PayListener {
     List<CartListener> listeners = new ArrayList<CartListener>();
     
     StoreInventory inventory;
     ShoppingCart cart;
-    int currentItemID;
+    int productId;
 
     public CartView() {
         initComponents();
         inventory = StoreInventory.getInstance();
         cart = ShoppingCart.getCart();
-        currentItemID = 0;
-        updateCartScreen();
+        productId = 0;
+        updateShoppingCartView();
     }
     
     public void addListener(CartListener toAdd) {
         listeners.add(toAdd);
     }
     
-    private void updateCartScreen() {
+    private void updateShoppingCartView() {
         populateTable();
-        updateTotalLabel();
+        updateTotal();
         if (cartTable.getRowCount() > 0)
             checkoutButton.setEnabled(true);
         else
@@ -37,7 +37,7 @@ public class CartView extends javax.swing.JFrame implements CCFormListener {
 
     }
     
-    private void updateTotalLabel() {
+    private void updateTotal() {
         double total = cart.getPriceTotal();
         DecimalFormat df2 = new DecimalFormat("#0.00");
         String totalString = "$" + df2.format(total);
@@ -99,7 +99,7 @@ public class CartView extends javax.swing.JFrame implements CCFormListener {
         totalLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         totalLabel.setText("Total: $0.00");
 
-        downButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Down-icon.png"))); // NOI18N
+        //downButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Down-icon.png"))); // NOI18N
         downButton.setEnabled(false);
         downButton.setPreferredSize(new java.awt.Dimension(40, 40));
         downButton.setSize(new java.awt.Dimension(32, 32));
@@ -109,7 +109,7 @@ public class CartView extends javax.swing.JFrame implements CCFormListener {
             }
         });
 
-        upButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Up-icon.png"))); // NOI18N
+        //upButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Up-icon.png"))); // NOI18N
         upButton.setEnabled(false);
         upButton.setPreferredSize(new java.awt.Dimension(40, 40));
         upButton.setSize(new java.awt.Dimension(32, 32));
@@ -181,15 +181,15 @@ public class CartView extends javax.swing.JFrame implements CCFormListener {
         int row = cartTable.getSelectedRow();
         System.out.println("Row:" + row);
         if (row >= 0) {
-            currentItemID = Integer.parseInt(cartTable.getValueAt(row, 0).toString());
-            System.out.println("currentItemID:" + currentItemID);
+            productId = Integer.parseInt(cartTable.getValueAt(row, 0).toString());
+            System.out.println("currentItemID:" + productId);
             updateUpDownButtons();
         }
     }//GEN-LAST:event_cartTableMouseClicked
 
     private void updateUpDownButtons() {
-        int quantityInInventory = inventory.getQuantity(currentItemID);
-        int quantityInCart = cart.getQuantity(currentItemID);
+        int quantityInInventory = inventory.getQuantity(productId);
+        int quantityInCart = cart.getQuantity(productId);
         
         int quantityAvailable = quantityInInventory - quantityInCart;
         
@@ -211,19 +211,19 @@ public class CartView extends javax.swing.JFrame implements CCFormListener {
     }//GEN-LAST:event_checkoutButtonActionPerformed
 
     private void downButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downButtonActionPerformed
-        cart.decrement(currentItemID, 1);
+        cart.decrement(productId, 1);
         updateUpDownButtons();
-        updateCartScreen();
+        updateShoppingCartView();
     }//GEN-LAST:event_downButtonActionPerformed
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
-        cart.increment(currentItemID, 1);
+        cart.increment(productId, 1);
         updateUpDownButtons();
-        updateCartScreen();
+        updateShoppingCartView();
     }//GEN-LAST:event_upButtonActionPerformed
 
-    public void transactionCompleted() {
-        updateCartScreen();
+    public void finished() {
+        updateShoppingCartView();
     }
     
     public static void main(String args[]) {

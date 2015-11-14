@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-interface CCFormListener {
-    public void transactionCompleted();
+interface PayListener {
+    public void finished();
 }
 
 public class CCForm extends javax.swing.JFrame {
-    List<CCFormListener> listeners = new ArrayList<>();
+    List<PayListener> listeners = new ArrayList<>();
 
     ShoppingCart cart;
     /**
@@ -25,7 +25,7 @@ public class CCForm extends javax.swing.JFrame {
         totalLabel.setText(totalString);
     }
     
-    public void addListener(CCFormListener toAdd) {
+    public void addListener(PayListener toAdd) {
         listeners.add(toAdd);
     }
     
@@ -191,8 +191,8 @@ public class CCForm extends javax.swing.JFrame {
         }
         cart.resetItems();
 
-        for (CCFormListener hl : listeners)
-            hl.transactionCompleted();
+        for (PayListener singleListener : listeners)
+            singleListener.finished();
         this.setVisible(false);
     }//GEN-LAST:event_submitButtonActionPerformed
 

@@ -8,6 +8,7 @@ public class MainScreen extends javax.swing.JFrame {
     StoreInventory inventory;
     ShoppingCart cart;
     Sold sold;
+    Archive archive;
     /**
      * Creates new form Home
      */
@@ -16,10 +17,12 @@ public class MainScreen extends javax.swing.JFrame {
         inventory = StoreInventory.getInstance();
         cart = ShoppingCart.getCart();
         sold = Sold.getInstance();
+        Archive archive = new Archive();
         fillInventory();
     }
 
     private void fillInventory() {
+       // archive.loadData();
 
     }
 
