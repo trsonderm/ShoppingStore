@@ -8,7 +8,7 @@ import java.util.Map;
  *
  * Seller class extends the AddProductdListener
  */
-public class Seller extends javax.swing.JFrame implements AddItemListener {
+public class Seller extends javax.swing.JFrame implements AddProductListener {
 
     StoreInventory inventory;
     ShoppingCart cart;
@@ -348,12 +348,12 @@ public class Seller extends javax.swing.JFrame implements AddItemListener {
     private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
         // TODO add your handling code here:
         clearProductDetails();
-        AddItem addItem = new AddItem();
-        addItem.addListener(this);
-        addItem.setVisible(true);
+        AddNewProduct newProduct = new AddNewProduct();
+        newProduct.addListener(this);
+        newProduct.setVisible(true);
     }//GEN-LAST:event_plusButtonActionPerformed
 
-    public void newItemAdded() {
+    public void newProduct() {
         updateInventoryList();
         updateFinancials();
         archive.saveData();
