@@ -41,6 +41,7 @@ public class ProductList {
 
     public void addItem(Product itemToAdd, int quantityToAdd) {
         int newID = getNewProductID();
+        itemToAdd.sku = newID;
         Map<String, Object> newItem = new HashMap<>();
         newItem.put("ID", newID);
         newItem.put("item", itemToAdd);
