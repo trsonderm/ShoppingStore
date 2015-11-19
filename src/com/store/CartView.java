@@ -8,7 +8,7 @@ interface CartListener {
     public void cartExited();
 }
 
-public class CartView extends javax.swing.JFrame implements PayListener {
+public class CartView extends javax.swing.JFrame implements PaymentListener {
     List<CartListener> listeners = new ArrayList<CartListener>();
     
     StoreInventory inventory;
@@ -205,9 +205,9 @@ public class CartView extends javax.swing.JFrame implements PayListener {
     }
     
     private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
-        CCForm ccForm = new CCForm();
-        ccForm.addListener(this);
-        ccForm.setVisible(true);
+        PurchaseForm pForm = new PurchaseForm();
+        pForm.addListener(this);
+        pForm.setVisible(true);
     }//GEN-LAST:event_checkoutButtonActionPerformed
 
     private void downButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downButtonActionPerformed
