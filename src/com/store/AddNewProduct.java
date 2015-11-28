@@ -174,6 +174,7 @@ public class AddNewProduct extends javax.swing.JFrame {
                 double price = Double.parseDouble(priceField.getText());
                 int quantity = Integer.parseInt(quantityField.getText());
                 Product product = new Product();
+                product.sku = -1;
                 product.name = title;
                 product.description = description;
                 product.cost = cost;

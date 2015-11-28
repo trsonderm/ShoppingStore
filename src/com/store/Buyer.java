@@ -39,7 +39,9 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         productList.removeAll();
         productList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = rawInventoryListLabels;
+            @Override
             public int getSize() { return strings.length; }
+            @Override
             public Object getElementAt(int i) { return strings[i]; }
         });
 
@@ -80,7 +82,6 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
 
         productList.setToolTipText("");
         productList.setPreferredSize(new java.awt.Dimension(260, 411));
-        productList.setSize(new java.awt.Dimension(260, 411));
         productList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 productListPropertyChange(evt);
@@ -106,12 +107,12 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
 
         purchaseButton.setText("Add To Cart");
         purchaseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent event) {
-                purchaseButtonActionPerformed(event);
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchaseButtonActionPerformed(evt);
             }
         });
 
-        quantityLabel.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
+        quantityLabel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         quantityLabel.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -173,7 +174,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -247,12 +248,15 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             else {
                 purchaseButton.setVisible(false);
             }
+          
     }
     
     private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
         int quantityInCart = cart.getQuantity(currentItemID);
         if (quantityInCart != 0)
+        {
             cart.increment(currentItemID, 1);
+        }
         else {
             Product itemToAdd = inventory.getProductByID(currentItemID);
             cart.addItem(itemToAdd, 1);
@@ -269,6 +273,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         cartView.setVisible(true);
     }//GEN-LAST:event_cartButtonActionPerformed
     
+    @Override
     public void cartExited() {
         updateInventoryList();
         updateCartLabel();
@@ -306,6 +311,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Buyer().setVisible(true);
             }
@@ -313,7 +319,6 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton purchaseButton;
     private javax.swing.JButton cartButton;
     private javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JButton jButton1;
@@ -324,6 +329,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JList productList;
+    private javax.swing.JButton purchaseButton;
     private javax.swing.JLabel quantityLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

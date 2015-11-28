@@ -40,10 +40,13 @@ public class ProductList {
     }
 
     public void addItem(Product itemToAdd, int quantityToAdd) {
+      if (itemToAdd.sku == -1)
+      {
         int newID = getNewProductID();
         itemToAdd.sku = newID;
+      }
         Map<String, Object> newItem = new HashMap<>();
-        newItem.put("ID", newID);
+        newItem.put("ID", itemToAdd.sku);
         newItem.put("item", itemToAdd);
         newItem.put("quantity", quantityToAdd);
         items.add(newItem);
@@ -135,6 +138,7 @@ public class ProductList {
                 i = items.size();
             }
         }
+     
         return itemToReturn;
     }
 
