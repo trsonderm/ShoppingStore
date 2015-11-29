@@ -47,11 +47,12 @@ public class Archive implements ArchiveAction{
             //deserialize the List
             recoveredCart = (Product[])input.readObject();
             //display its data
+            int skuCounter = 0;
             for(Product o: recoveredCart) {
 
-
+                o.sku = skuCounter;
                 storeInventory.addItem(o,o.quantity);
-
+                skuCounter++;
             }
         }
         catch(ClassNotFoundException ex){
