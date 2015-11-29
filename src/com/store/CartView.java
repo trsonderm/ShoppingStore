@@ -77,7 +77,6 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
-        cartTable.setSize(new java.awt.Dimension(100, 100));
         cartTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cartTableMouseClicked(evt);
@@ -100,20 +99,18 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
         totalLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         totalLabel.setText("Total: $0.00");
 
-        //downButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Down-icon.png"))); // NOI18N
+        downButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/store/Alarm-Arrow-Down-icon.png"))); // NOI18N
         downButton.setEnabled(false);
         downButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        downButton.setSize(new java.awt.Dimension(32, 32));
         downButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 downButtonActionPerformed(evt);
             }
         });
 
-        //upButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alarm-Arrow-Up-icon.png"))); // NOI18N
+        upButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/store/Alarm-Arrow-Up-icon.png"))); // NOI18N
         upButton.setEnabled(false);
         upButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        upButton.setSize(new java.awt.Dimension(32, 32));
         upButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 upButtonActionPerformed(evt);
