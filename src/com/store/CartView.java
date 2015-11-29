@@ -56,6 +56,7 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
                 false, false, false, false, false
             };
 
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -179,10 +180,10 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
 
     private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
         int row = cartTable.getSelectedRow();
-        System.out.println("Row:" + row);
+       // System.out.println("Row:" + row);
         if (row >= 0) {
             productId = Integer.parseInt(cartTable.getValueAt(row, 0).toString());
-            System.out.println("currentItemID:" + productId);
+        //    System.out.println("currentItemID:" + productId);
             updateUpDownButtons();
         }
     }//GEN-LAST:event_cartTableMouseClicked
@@ -222,6 +223,7 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
         updateShoppingCartView();
     }//GEN-LAST:event_upButtonActionPerformed
 
+    @Override
     public void finished() {
         updateShoppingCartView();
     }
@@ -253,6 +255,7 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CartView().setVisible(true);
             }

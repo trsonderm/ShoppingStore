@@ -194,7 +194,6 @@ public class ProductList {
        {
            System.out.println(o);
        }
-        return;
     }
 
     public double getCostTotal() {
