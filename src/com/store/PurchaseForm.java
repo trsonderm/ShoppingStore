@@ -11,11 +11,12 @@ interface PaymentListener {
 
 public class PurchaseForm extends javax.swing.JFrame {
     List<PaymentListener> listeners = new ArrayList<>();
+
     Archive archive;
 
     ShoppingCart cart;
     /**
-     * Creates new form CCForm
+     * Creates new form PurchaseForm
      */
     public PurchaseForm() {
         initComponents();
@@ -33,9 +34,9 @@ public class PurchaseForm extends javax.swing.JFrame {
 
     public void checkFields () {
         String nameString = nameField.getText();
-        String creditCardString = creditCardField.getText();
+        String fakeCreditCard = creditCardField.getText();
 
-        if (nameString.length() > 0 && creditCardString.length() > 0) {
+        if (nameString.length() > 0 && fakeCreditCard.length() > 0) {
             submitButton.setEnabled(true);
         }
         else {
@@ -187,9 +188,9 @@ public class PurchaseForm extends javax.swing.JFrame {
             Map<String, Object> cartItem = cart.getNext();
             Product product = (Product)cartItem.get("item");
             int quantity = (int)cartItem.get("quantity");
-            int itemID = product.sku;
+            int skuID = product.sku;
             sold.addItem(product, quantity);
-            inventory.decrement(itemID, quantity);
+            inventory.decrement(skuID, quantity);
         }
         cart.resetItems();
         archive.saveData();

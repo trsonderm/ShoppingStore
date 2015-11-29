@@ -4,12 +4,17 @@ import java.io.*;
 import java.util.List;
 
 /**
- * Created by WPTRS on 11/4/2015.
+ * Archive Interface to be called on buyer seller pages
+ * @author Thomas Sonderman
  */
 interface ArchiveAction {
     public void saveData();
     public void loadData();
 }
+/**
+ * Archive class that implements Archive Action
+ * @author Thomas Sonderman
+ */
 public class Archive implements ArchiveAction{
     private StoreInventory storeInventory;
     public Product[] recoveredCart;
@@ -18,6 +23,10 @@ public class Archive implements ArchiveAction{
         this.storeInventory = StoreInventory.getInstance();
 
     }
+    /**
+     * saves data into the storeInventory object
+     * @author Thomas Sonderman
+     */
 
     public void saveData()
     {
@@ -36,6 +45,11 @@ public class Archive implements ArchiveAction{
         }
 
     }
+
+    /**
+     * loads saved data into the storeInventory object
+     * @author Thomas Sonderman
+     */
     public void loadData(){
         ShoppingCart tempCart = ShoppingCart.getCart();
 

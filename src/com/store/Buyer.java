@@ -4,27 +4,36 @@ package com.store;
 import javax.swing.*;
 import java.text.DecimalFormat;
 import java.util.Map;
-
+/**
+ *Buyer Class that consumes seller items
+ */
 public class Buyer extends javax.swing.JFrame implements CartListener {
 
     StoreInventory inventory;
     ShoppingCart cart;
     
-    String[] inventoryListLabels;
-    int currentItemID;
+    String[] inventoryText;
 
+    int currentProductID;
+    /**
+     * Buyer Constructor
+     */
     public Buyer() {
         initComponents();
+
         inventory = StoreInventory.getInstance();
+
         cart = ShoppingCart.getCart();
         
         updateInventoryList();
         
-        currentItemID = 0;
+        currentProductID = 0;
     }
-    
+    /**
+     * update inventory of store list
+     */
     public void updateInventoryList() {
-        String[] rawInventoryListLabels = new String[inventory.getIteratorCount()];
+        String[] TextLabels = new String[inventory.getIteratorCount()];
         int iterator = 0;
         inventory.resetIterator();
         while (inventory.hasNext()) {
@@ -32,13 +41,13 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             DecimalFormat df2 = new DecimalFormat( "#0.00" );
             Product product = (Product)inventoryItem.get("item");
 
-            rawInventoryListLabels[iterator] = product.name + " - $" + df2.format(product.price);
+            TextLabels[iterator] = product.name + " - $" + df2.format(product.price);
             iterator++;
         }
         
         productList.removeAll();
         productList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = rawInventoryListLabels;
+            String[] strings = TextLabels;
             @Override
             public int getSize() { return strings.length; }
             @Override
@@ -47,7 +56,9 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
 
         purchaseButton.setVisible(false);
     }
-
+    /**
+     * Build the componenents for the page
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -105,7 +116,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
         priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         priceLabel.setText(" ");
 
-        purchaseButton.setText("Add To Cart");
+        purchaseButton.setText("Buy");
         purchaseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 purchaseButtonActionPerformed(evt);
@@ -225,8 +236,8 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             priceLabel.setText("");
             descriptionTextArea.setText("");
             purchaseButton.setVisible(false);
-            currentItemID = inventory.getProductID(productList.getSelectedIndex());
-            updateProductDetails(currentItemID);
+            currentProductID = inventory.getProductID(productList.getSelectedIndex());
+            updateProductDetails(currentProductID);
         }
     }//GEN-LAST:event_productListValueChanged
 
@@ -252,16 +263,16 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     }
     
     private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
-        int quantityInCart = cart.getQuantity(currentItemID);
+        int quantityInCart = cart.getQuantity(currentProductID);
         if (quantityInCart != 0)
         {
-            cart.increment(currentItemID, 1);
+            cart.increment(currentProductID, 1);
         }
         else {
-            Product itemToAdd = inventory.getProductByID(currentItemID);
+            Product itemToAdd = inventory.getProductByID(currentProductID);
             cart.addItem(itemToAdd, 1);
         }
-        updateProductDetails(currentItemID);
+        updateProductDetails(currentProductID);
         updateCartLabel();
     }//GEN-LAST:event_purchaseButtonActionPerformed
 
@@ -283,7 +294,9 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     }//GEN-LAST:event_formFocusGained
     
     private void updateCartLabel () {
+
         int items = cart.getCount();
+
         double total = cart.getPriceTotal();
 
         DecimalFormat df2 = new DecimalFormat("#.00");

@@ -56,8 +56,8 @@ public class MainScreen extends javax.swing.JFrame {
 
         loginFrame.setVisible(true);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Login");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel1.setText("Account Login");
 
         jLabel2.setText("Username");
 
@@ -161,35 +161,44 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String uname = usernameField.getText();
+
+        String pwd = passwordField.getText();
         //if (username.equals("buyer")) {
-        if (username.equals("b")) {
+        if (uname.equals("b")) {
             //if (password.equals("password")) {
-            if (password.equals("")) {
+            if (pwd.equals("")) {
                 Buyer buyer = new Buyer();
                 buyer.setVisible(true);
                 usernameField.setText("");
                 passwordField.setText("");
             }
             else {
-                JOptionPane.showMessageDialog(null, "Incorrect password for buyer.", "Problem", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Password", "Error", JOptionPane.ERROR_MESSAGE);
                 passwordField.setText("");
             }
         }
         //else if (username.equals("seller")) {
-        else if (username.equals("s")) {
+        else if (uname.equals("s")) {
             //if (password.equals("password")) {
-            if (password.equals("")) {
+            if (pwd.equals("")) {
                 Seller seller = new Seller();
+
                 seller.setVisible(true);
+
                 usernameField.setText("");
+
                 passwordField.setText("");
             }
             else {
-                JOptionPane.showMessageDialog(null, "Incorrect password for seller.", "Problem", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Password", "Error", JOptionPane.ERROR_MESSAGE);
                 passwordField.setText("");
             }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Invalid Username", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

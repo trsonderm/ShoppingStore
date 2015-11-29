@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Add Product Listener Interface
+ * @author Thomas Sonderman
+ */
 interface AddProductListener {
     public void newProduct();
 }
@@ -12,13 +16,14 @@ public class AddNewProduct extends javax.swing.JFrame {
 
     /**
      * Creates new form AddItem
+     * @author Thomas Sonderman
      */
     public AddNewProduct() {
         initComponents();
         inventory = StoreInventory.getInstance();
     }
     /**
-     *
+     * add Listener class for chagnes
      * @param toAdd
      */
     public void addListener(AddProductListener toAdd) {
@@ -49,8 +54,10 @@ public class AddNewProduct extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 17)); // NOI18N
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         jLabel1.setText("Add Product");
 
         jLabel2.setText("Product Name");
@@ -59,7 +66,7 @@ public class AddNewProduct extends javax.swing.JFrame {
 
         jLabel4.setText("Cost");
 
-        jLabel5.setText("Sell Price");
+        jLabel5.setText("Price");
 
         jLabel6.setText("Quantity");
 
@@ -67,14 +74,14 @@ public class AddNewProduct extends javax.swing.JFrame {
         descriptionField.setRows(5);
         jScrollPane1.setViewportView(descriptionField);
 
+        cancelButton.setText("Cancel");
         addButton.setText("Add Product");
+
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
-
-        cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -230,20 +237,34 @@ public class AddNewProduct extends javax.swing.JFrame {
         });
     }
 
-    private boolean isDouble(String str) {
-        try {
-            Double.parseDouble(str);
+    /**
+     * Check if string value formats to Double
+     * @param str string to convert to Double
+     */
+    private boolean isDouble(String valueToCheck)
+    {
+        try
+        {
+            Double.parseDouble(valueToCheck);
             return true;
-        } catch (NumberFormatException e) {
+        }
+        catch (Exception ex)
+        {
             return false;
         }
     }
-
-    private boolean isInteger(String str) {
-        try {
-            Integer.parseInt(str);
+    /**
+     * private function to check if string converts to Integer
+     * @param str string to convert to Double
+     */
+    private boolean isInteger(String valueToCheck)
+    {
+        try
+        {
+            Integer.parseInt(valueToCheck);
             return true;
-        } catch (NumberFormatException e) {
+        }
+        catch (Exception ex) {
             return false;
         }
     }
@@ -265,5 +286,6 @@ public class AddNewProduct extends javax.swing.JFrame {
     private javax.swing.JTextField titleField;
     // End of variables declaration//GEN-END:variables
     List<AddProductListener> listeners = new ArrayList<>();
+
     StoreInventory inventory;
 }
