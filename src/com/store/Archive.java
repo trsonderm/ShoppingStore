@@ -28,6 +28,7 @@ public class Archive implements ArchiveAction{
      * @author Thomas Sonderman
      */
 
+    @Override
     public void saveData()
     {
 
@@ -50,6 +51,7 @@ public class Archive implements ArchiveAction{
      * loads saved data into the storeInventory object
      * @author Thomas Sonderman
      */
+    @Override
     public void loadData(){
         ShoppingCart tempCart = ShoppingCart.getCart();
 
