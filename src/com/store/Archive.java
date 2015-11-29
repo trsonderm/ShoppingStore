@@ -36,6 +36,7 @@ public class Archive implements ArchiveAction{
         }
 
     }
+    @Override
     public void loadData(){
         ShoppingCart tempCart = ShoppingCart.getCart();
 

@@ -65,7 +65,9 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         productList.removeAll();
         productList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = rawInventoryListLabels;
+            @Override
             public int getSize() { return strings.length; }
+            @Override
             public Object getElementAt(int i) { return strings[i]; }
         });
 
@@ -355,6 +357,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         newProduct.setVisible(true);
     }//GEN-LAST:event_plusButtonActionPerformed
 
+    @Override
     public void newProduct() {
         updateInventoryList();
         updateFinancials();
@@ -413,6 +416,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Seller().setVisible(true);
             }
