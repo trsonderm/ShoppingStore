@@ -191,6 +191,12 @@ public class MainScreen extends javax.swing.JFrame {
                 passwordField.setText("");
             }
         }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Invalid username or Incorrect password.", "Problem", JOptionPane.ERROR_MESSAGE);
+            usernameField.setText("");
+            passwordField.setText("");
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
