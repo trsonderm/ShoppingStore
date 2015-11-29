@@ -180,10 +180,10 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
 
     private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
         int row = cartTable.getSelectedRow();
-        System.out.println("Row:" + row);
+       // System.out.println("Row:" + row);
         if (row >= 0) {
             productId = Integer.parseInt(cartTable.getValueAt(row, 0).toString());
-            System.out.println("currentItemID:" + productId);
+        //    System.out.println("currentItemID:" + productId);
             updateUpDownButtons();
         }
     }//GEN-LAST:event_cartTableMouseClicked
