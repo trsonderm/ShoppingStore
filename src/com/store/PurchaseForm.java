@@ -189,7 +189,7 @@ public class PurchaseForm extends javax.swing.JFrame {
             Product product = (Product)cartItem.get("item");
             int quantity = (int)cartItem.get("quantity");
             int skuID = product.sku;
-            sold.addItem(product, quantity);
+            sold.addProduct(product, quantity);
             inventory.decrement(skuID, quantity);
         }
         cart.resetItems();
