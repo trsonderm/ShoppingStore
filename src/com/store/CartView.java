@@ -186,8 +186,8 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
     }//GEN-LAST:event_cartTableMouseClicked
 
     private void updateUpDownButtons() {
-        int quantityInInventory = inventory.getQuantity(productId);
-        int quantityInCart = cart.getQuantity(productId);
+        int quantityInInventory = inventory.retrieveQuantity(productId);
+        int quantityInCart = cart.retrieveQuantity(productId);
         
         int quantityAvailable = quantityInInventory - quantityInCart;
         
