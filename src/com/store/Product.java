@@ -3,7 +3,8 @@ package com.store;
 import java.io.Serializable;
 
 /**
- * Created by WPTRS on 11/4/2015.
+ * Product Class
+ * @author Thomas Sonderman
  */
 public class Product implements Serializable{
     public int sku;

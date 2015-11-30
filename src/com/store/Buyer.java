@@ -240,11 +240,14 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             updateProductDetails(currentProductID);
         }
     }//GEN-LAST:event_productListValueChanged
-
-    private void updateProductDetails (int itemID) {
-            Product product = inventory.getProductByID(itemID);
-            int quantityInInventory = inventory.getQuantity(itemID);
-            int quantityInCart = cart.getQuantity(itemID);
+    /**
+     * update product details
+     * @param productID
+     */
+    private void updateProductDetails (int productID) {
+            Product product = inventory.getProductByID(productID);
+            int quantityInInventory = inventory.retrieveQuantity(productID);
+            int quantityInCart = cart.retrieveQuantity(productID);
             titleLabel.setText(product.name);
             DecimalFormat df2 = new DecimalFormat( "#.00" );
             priceLabel.setText("$" + df2.format(product.price) );
@@ -263,14 +266,14 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     }
     
     private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
-        int quantityInCart = cart.getQuantity(currentProductID);
+        int quantityInCart = cart.retrieveQuantity(currentProductID);
         if (quantityInCart != 0)
         {
             cart.increment(currentProductID, 1);
         }
         else {
             Product itemToAdd = inventory.getProductByID(currentProductID);
-            cart.addItem(itemToAdd, 1);
+            cart.addProduct(itemToAdd, 1);
         }
         updateProductDetails(currentProductID);
         updateCartLabel();

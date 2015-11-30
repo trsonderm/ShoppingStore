@@ -2,7 +2,10 @@ package com.store;
 
 
 import javax.swing.*;
-
+/**
+ * Mainscreen login functionality
+ * @author Michael Del Campo
+ */
 public class MainScreen extends javax.swing.JFrame {
 
     StoreInventory inventory;
@@ -10,7 +13,7 @@ public class MainScreen extends javax.swing.JFrame {
     Sold sold;
     Archive archive;
     /**
-     * Creates new form Home
+     * Mainscreen Construtor grab archived items and fills
      */
     public MainScreen() {
         initComponents();
@@ -20,7 +23,9 @@ public class MainScreen extends javax.swing.JFrame {
         this.archive = new Archive();
         fillInventory();
     }
-
+    /**
+     * Fills inventory local fill is overwritten due to archived data.
+     */
     private void fillInventory() {
         archive.loadData();
         /*Product test = new Product();
@@ -35,7 +40,9 @@ public class MainScreen extends javax.swing.JFrame {
 
 
     }
-
+    /**
+    * Build the components for the main screen
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

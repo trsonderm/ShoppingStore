@@ -67,7 +67,7 @@ public class Archive implements ArchiveAction{
             for(Product o: recoveredCart) {
 
                 o.sku = skuCounter;
-                storeInventory.addItem(o,o.quantity);
+                storeInventory.addProduct(o,o.quantity);
                 skuCounter++;
             }
         }

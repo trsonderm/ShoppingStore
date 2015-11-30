@@ -1,7 +1,9 @@
 package com.store;
 
 /**
- * Created by WPTRS on 11/4/2015.
+ * Shopping Cart
+ *
+ * Singleton Pattern
  */
 
 public class ShoppingCart extends ProductList{

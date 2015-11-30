@@ -1,5 +1,10 @@
 package com.store;
 
+/**
+ * Sold Class of ProductList
+ *
+ * Singleton Pattern
+ */
 public class Sold extends ProductList{
     private static Sold instance = null;
     
