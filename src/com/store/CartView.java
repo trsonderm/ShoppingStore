@@ -40,7 +40,7 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
     private void updateTotal() {
         double total = cart.getPriceTotal();
         DecimalFormat df2 = new DecimalFormat("#0.00");
-        String totalString = "$" + df2.format(total);
+        String totalString = "Total: $" + df2.format(total);
         totalLabel.setText(totalString);
     }
     
@@ -73,6 +73,11 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
         downButton = new javax.swing.JButton();
         upButton = new javax.swing.JButton();
         checkoutButton = new javax.swing.JButton();
+        jLabelID = new javax.swing.JLabel();
+        jLabelProductName = new javax.swing.JLabel();
+        jLabelUnitPrice = new javax.swing.JLabel();
+        jLabelQuantity = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -125,6 +130,16 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
             }
         });
 
+        jLabelID.setText("ID");
+
+        jLabelProductName.setText("Product Name");
+
+        jLabelUnitPrice.setText("Unit Price");
+
+        jLabelQuantity.setText("Quantity");
+
+        jLabelPrice.setText("Price");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,32 +147,49 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backButton)
+                    .addComponent(cartTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(downButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(totalLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkoutButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(upButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(checkoutButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabelID)
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabelProductName)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabelUnitPrice)
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabelQuantity)
+                        .addGap(94, 94, 94)
+                        .addComponent(jLabelPrice)
+                        .addGap(0, 87, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(cartTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(totalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cartTable, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelID)
+                    .addComponent(jLabelProductName)
+                    .addComponent(jLabelUnitPrice)
+                    .addComponent(jLabelQuantity)
+                    .addComponent(jLabelPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(cartTable, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(upButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addComponent(downButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(checkoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(checkoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(totalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
 
@@ -264,6 +296,11 @@ public class CartView extends javax.swing.JFrame implements PaymentListener {
     private javax.swing.JTable cartTable;
     private javax.swing.JButton checkoutButton;
     private javax.swing.JButton downButton;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelPrice;
+    private javax.swing.JLabel jLabelProductName;
+    private javax.swing.JLabel jLabelQuantity;
+    private javax.swing.JLabel jLabelUnitPrice;
     private javax.swing.JLabel totalLabel;
     private javax.swing.JButton upButton;
     // End of variables declaration//GEN-END:variables
