@@ -48,7 +48,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         double cost = sold.getCostTotal() + inventory.getCostTotal() + inventory.cost;
         double revenue = sold.getPriceTotal() +  inventory.revenue;
         double profit = (revenue - cost) + inventory.profit;
-        inventory.profit = profit;
+        inventory.profit = inventory.profit + (sold.getPriceTotal()-sold.getCostTotal());
         inventory.revenue = inventory.revenue + sold.getPriceTotal();
         inventory.cost = sold.getCostTotal() + inventory.cost;
         archive.saveFinancials();
