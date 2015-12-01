@@ -67,7 +67,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
     private void updateInventoryList() {
        
         String[] rawInventoryListLabels = new String[inventory.getIteratorCount()];
-        System.out.println(inventory.getIteratorCount());
+       
         int iterator = 0;
          
         while (inventory.hasNext()) {
