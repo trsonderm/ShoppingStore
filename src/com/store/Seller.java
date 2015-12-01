@@ -21,16 +21,25 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
      * Seller Constructor
      */
     public Seller() {
+     
         initComponents();
+      
         inventory = StoreInventory.getInstance();
+      
         cart = ShoppingCart.getCart();
+       
         sold = Sold.getInstance();
+        
         archive = new Archive();
+     
 
         updateInventoryList();
+        
         updateFinancials();
+     
 
         currentProductID = 0;
+       
     }
     /**
      * method to check and update financials
@@ -55,15 +64,19 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
     /**
      * method to update current inventory list
      */
-    public void updateInventoryList() {
+    private void updateInventoryList() {
+       
         String[] rawInventoryListLabels = new String[inventory.getIteratorCount()];
+        System.out.println(inventory.getIteratorCount());
         int iterator = 0;
+         
         while (inventory.hasNext()) {
             Map<String, Object> inventoryItem = inventory.getNext();
             DecimalFormat df2 = new DecimalFormat( "#0.00" );
             Product product = (Product)inventoryItem.get("item");
-
+           
             rawInventoryListLabels[iterator] = product.name + " - $" + df2.format(product.price);
+           
             iterator++;
         }
         inventory.resetIterator();
@@ -356,7 +369,6 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         inventory.removeProduct(currentProductID);
         updateInventoryList();
         updateFinancials();
-        archive.saveData();
     }//GEN-LAST:event_minusButtonActionPerformed
     /**
      * method to add new product
