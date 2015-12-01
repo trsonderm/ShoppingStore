@@ -10,8 +10,6 @@ import java.util.List;
 interface ArchiveAction {
     public void saveData();
     public void loadData();
-    public void saveFinancials();
-    public void loadFinancials();
 }
 /**
  * Archive class that implements Archive Action
@@ -20,7 +18,6 @@ interface ArchiveAction {
 public class Archive implements ArchiveAction{
     private StoreInventory storeInventory;
     public Product[] recoveredCart;
-    public double revenueRecovered;
     public Archive()
     {
         this.storeInventory = StoreInventory.getInstance();
@@ -47,49 +44,6 @@ public class Archive implements ArchiveAction{
         }catch(Exception ex){
             ex.printStackTrace();
         }
-
-    }
-
-    @Override
-    public void saveFinancials()
-    {
-        double revenueToSave = storeInventory.revenue;
-        try{
-
-            FileOutputStream fout = new FileOutputStream("revenue.dat");
-            ObjectOutputStream oos = new ObjectOutputStream(fout);
-            oos.writeObject(revenueToSave);
-            oos.close();
-            System.out.println("Done");
-
-        }catch(Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }
-    @Override
-    public void loadFinancials()
-    {
-        ShoppingCart tempCart = ShoppingCart.getCart();
-
-        try(
-                InputStream file = new FileInputStream("revenue.dat");
-                InputStream buffer = new BufferedInputStream(file);
-                ObjectInput input = new ObjectInputStream (buffer);
-        ){
-            //deserialize the List
-            revenueRecovered = (double)input.readObject();
-            //display its data
-
-            storeInventory.revenue = revenueRecovered;
-        }
-        catch(ClassNotFoundException ex){
-            System.out.println("Cannot perform input. Class not found."+ ex);
-        }
-        catch(IOException ex){
-            System.out.println("Cannot perform input."+ex);
-        }
-
 
     }
 

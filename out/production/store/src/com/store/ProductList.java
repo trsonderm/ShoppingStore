@@ -17,7 +17,6 @@ import java.util.Map;
 public class ProductList {
     private ArrayList<Map<String, Object>> products;
     public ArrayList<Map<String, Object>> productsToLoad;
-    double revenue;
 
     int currentIteratorID;
 
