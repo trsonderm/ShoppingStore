@@ -27,7 +27,7 @@ public class UnitTests extends TestCase {
         test.name = "Chili";
         test.price = 6;
         test.description = "blah";
-        inventory.addItem(test, 3);
+        inventory.addProduct(test, 3);
         assertEquals(inventory.getProductID(0), test.sku);
     }
     @Test
@@ -40,7 +40,7 @@ public class UnitTests extends TestCase {
         test.name = "Beans";
         test.price = 6;
         test.description = "blah";
-        inventory.addItem(test, 3);
+        inventory.addProduct(test, 3);
         assertEquals(inventory.getCount(), 6);
     }
     @Test
@@ -53,8 +53,8 @@ public class UnitTests extends TestCase {
         test.name = "Rice";
         test.price = 3;
         test.description = "blah";
-        inventory.addItem(test, 22);
-        assertEquals(inventory.getQuantity(2), 22);
+        inventory.addProduct(test, 22);
+        assertEquals(inventory.retrieveQuantity(2), 22);
     }
     @Test
     public void testRemove() {
@@ -67,8 +67,8 @@ public class UnitTests extends TestCase {
         test.price = 3;
         test.description = "blah blah";
         Integer count = inventory.getCount();
-        inventory.addItem(test, 4);
-        inventory.removeItem(3);
+        inventory.addProduct(test, 4);
+        inventory.removeProduct(3);
         assertEquals(inventory.getCount(), (int)count);
     }
 

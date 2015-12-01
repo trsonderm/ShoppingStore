@@ -356,6 +356,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         inventory.removeProduct(currentProductID);
         updateInventoryList();
         updateFinancials();
+        archive.saveData();
     }//GEN-LAST:event_minusButtonActionPerformed
     /**
      * method to add new product

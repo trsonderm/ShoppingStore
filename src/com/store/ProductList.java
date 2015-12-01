@@ -138,6 +138,7 @@ public class ProductList {
                 products.set(index, tempCartProduct);
             }
             else {
+                tempItem.quantity -= quantityToDecrementBy;
                 quantity -= quantityToDecrementBy;
                 tempCartProduct.put("quantity", quantity);
                 products.set(index, tempCartProduct);
