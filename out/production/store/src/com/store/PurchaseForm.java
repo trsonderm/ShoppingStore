@@ -194,6 +194,7 @@ public class PurchaseForm extends javax.swing.JFrame {
         }
         cart.resetItems();
         archive.saveData();
+        archive.saveFinancials();
 
         for (PaymentListener singleListener : listeners)
             singleListener.finished();

@@ -18,6 +18,8 @@ public class ProductList {
     private ArrayList<Map<String, Object>> products;
     public ArrayList<Map<String, Object>> productsToLoad;
     double revenue;
+    double profit;
+    double cost;
 
     int currentIteratorID;
 

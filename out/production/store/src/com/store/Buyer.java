@@ -32,7 +32,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
     /**
      * update inventory of store list
      */
-    public void updateInventoryList() {
+    private void updateInventoryList() {
         String[] TextLabels = new String[inventory.getIteratorCount()];
         int iterator = 0;
         inventory.resetIterator();
@@ -44,6 +44,7 @@ public class Buyer extends javax.swing.JFrame implements CartListener {
             TextLabels[iterator] = product.name + " - $" + df2.format(product.price);
             iterator++;
         }
+        inventory.resetIterator();
         
         productList.removeAll();
         productList.setModel(new javax.swing.AbstractListModel() {

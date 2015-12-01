@@ -45,9 +45,13 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
      * method to check and update financials
      */
     private void updateFinancials() {
-        double cost = sold.getCostTotal() + inventory.getCostTotal();
-        double revenue = sold.getPriceTotal();
-        double profit = revenue - cost;
+        double cost = sold.getCostTotal() + inventory.getCostTotal() + inventory.cost;
+        double revenue = sold.getPriceTotal() +  inventory.revenue;
+        double profit = (revenue - cost) + inventory.profit;
+        inventory.profit = profit;
+        inventory.revenue = inventory.revenue + sold.getPriceTotal();
+        inventory.cost = sold.getCostTotal() + inventory.cost;
+        archive.saveFinancials();
 
         DecimalFormat df2 = new DecimalFormat( "#0.00" );
 
@@ -370,6 +374,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         updateInventoryList();
         updateFinancials();
         archive.saveData();
+        archive.saveFinancials();
     }//GEN-LAST:event_minusButtonActionPerformed
     /**
      * method to add new product

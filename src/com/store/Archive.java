@@ -21,6 +21,8 @@ public class Archive implements ArchiveAction{
     private StoreInventory storeInventory;
     public Product[] recoveredCart;
     public double revenueRecovered;
+    public double profitRecovered;
+    public double costRecovered;
     public Archive()
     {
         this.storeInventory = StoreInventory.getInstance();
@@ -54,11 +56,15 @@ public class Archive implements ArchiveAction{
     public void saveFinancials()
     {
         double revenueToSave = storeInventory.revenue;
+        double profitToSave = storeInventory.profit;
+        double costToSave = storeInventory.cost;
         try{
 
             FileOutputStream fout = new FileOutputStream("revenue.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(revenueToSave);
+            oos.writeObject(profitToSave);
+            oos.writeObject(costToSave);
             oos.close();
             System.out.println("Done");
 
@@ -79,9 +85,13 @@ public class Archive implements ArchiveAction{
         ){
             //deserialize the List
             revenueRecovered = (double)input.readObject();
+            profitRecovered = (double)input.readObject();
+            costRecovered = (double)input.readObject();
             //display its data
 
             storeInventory.revenue = revenueRecovered;
+            storeInventory.profit = profitRecovered;
+            storeInventory.cost = costRecovered;
         }
         catch(ClassNotFoundException ex){
             System.out.println("Cannot perform input. Class not found."+ ex);

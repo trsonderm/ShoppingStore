@@ -9,4 +9,5 @@ import java.io.Serializable;
 
 public class Revenue implements Serializable{
     public double revenue;
+    public double profit;
 }

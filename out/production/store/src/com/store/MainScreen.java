@@ -37,6 +37,12 @@ public class MainScreen extends javax.swing.JFrame {
 
         inventory.addItem(test,3);
         archive.saveData();*/
+        /*inventory.revenue = 60.00;
+        inventory.profit = 30.00;
+        inventory.cost = 20.00;
+        archive.saveFinancials();*/
+        archive.loadFinancials();
+
 
 
     }
