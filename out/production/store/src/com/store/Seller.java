@@ -358,13 +358,19 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         else {
             updateProductDetails(currentProductID);
         }
+        Product t = inventory.getProductByID(currentProductID);
+        t.quantity = t.quantity-1;
         updateFinancials();
+        archive.saveData();
     }//GEN-LAST:event_downButtonActionPerformed
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
         inventory.increment(currentProductID, 1);
         updateProductDetails(currentProductID);
+        Product t = inventory.getProductByID(currentProductID);
+        t.quantity = t.quantity+1;
         updateFinancials();
+        archive.saveData();
     }//GEN-LAST:event_upButtonActionPerformed
 
     private void minusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusButtonActionPerformed
@@ -409,6 +415,7 @@ public class Seller extends javax.swing.JFrame implements AddProductListener {
         int quantityAvailable = quantityInInventory - quantityInCart;
 
         quantityLabel.setText("Quantity in stock: " + quantityAvailable);
+        archive.saveData();
     }
 
     private void clearProductDetails() {
