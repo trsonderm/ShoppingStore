@@ -8,6 +8,9 @@ interface CartListener {
     public void cartExited();
 }
 
+/**
+ * CartView Class and Listener
+ */
 public class CartView extends javax.swing.JFrame implements PaymentListener {
     List<CartListener> listeners = new ArrayList<CartListener>();
     

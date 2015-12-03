@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.util.Map;
 /**
  *Buyer Class that consumes seller items
+ * @author Michael Del Campo
  */
 public class Buyer extends javax.swing.JFrame implements CartListener {
 
