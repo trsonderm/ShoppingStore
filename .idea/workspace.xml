@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/store/Buyer.java" afterPath="$PROJECT_DIR$/src/com/store/Buyer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/store/CartView.java" afterPath="$PROJECT_DIR$/src/com/store/CartView.java" />
-    </list>
+    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="" />
     <ignored path="store.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,18 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/store/MainScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
-              <folding>
-                <element signature="e#1251#1340#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ProductList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/store/ProductList.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,11 +74,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnitTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UnitTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests/UnitTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12295082">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Buyer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/store/Buyer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15368852">
+              <caret line="253" column="37" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -739,7 +734,7 @@
       <workItem from="1448890490321" duration="14341000" />
       <workItem from="1448927593815" duration="4067000" />
       <workItem from="1448975782284" duration="2092000" />
-      <workItem from="1448990015593" duration="4845000" />
+      <workItem from="1448990015593" duration="5057000" />
     </task>
     <task id="LOCAL-00001" summary="added Serialization Interface">
       <created>1446654671580</created>
@@ -769,7 +764,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42343000" />
+    <option name="totallyTimeSpent" value="42555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1258,14 +1253,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/store/Buyer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/store/CartView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1382,8 +1369,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/UnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12295082">
+        <state vertical-scroll-proportion="0.0">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/store/Buyer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15368852">
+          <caret line="253" column="37" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="37" />
           <folding />
         </state>
       </provider>
