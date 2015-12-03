@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="bug fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/UseCase8alt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase7.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase7alt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase8.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/iterator_singleton.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/observer_mvc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/~$oup_33_final_doc.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase6.mdj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase7.mdj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase7alt.mdj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase8.seq.violet.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase8alt.mdj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase8alt.seq.violet.html" />
+    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="adding use cases">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase5alt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase5.mdj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Usecase5alt.mdj" />
+      <change type="DELETED" beforePath="C:\Users\wptrs\Documents\store\ShoppingStore\docs\~$oup_33_final_doc.docx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/group_33_final_doc.docx" afterPath="$PROJECT_DIR$/docs/group_33_final_doc.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="store.iws" />
@@ -274,6 +266,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShoppingStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShoppingStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -671,11 +681,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448929873426</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="adding use cases">
+      <created>1449154426263</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1449154426263</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44248000" />
+    <option name="totallyTimeSpent" value="45457000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -732,7 +748,8 @@
     <MESSAGE value="added Serialization Interface" />
     <MESSAGE value="added documentation / comments" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
+    <MESSAGE value="adding use cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding use cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -758,7 +775,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#10442#10529#0" expanded="true" />
+            <element signature="e#10442#10529#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -802,7 +819,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
           <folding>
-            <element signature="e#1251#1340#0" expanded="true" />
+            <element signature="e#1251#1340#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -866,7 +883,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1251#1340#0" expanded="true" />
+            <element signature="e#1251#1340#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,7 +947,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
           <folding>
-            <element signature="e#1251#1340#0" expanded="true" />
+            <element signature="e#1251#1340#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1059,7 +1076,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <element signature="e#10442#10529#0" expanded="true" />
+            <element signature="e#10442#10529#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1069,7 +1086,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding>
-            <element signature="e#1251#1340#0" expanded="true" />
+            <element signature="e#1251#1340#0" expanded="false" />
           </folding>
         </state>
       </provider>
