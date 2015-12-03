@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="" />
+    <list default="true" id="3ce2ad11-100f-4c05-bb57-9688bf6d6499" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/~$oup_33_final_doc.docx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/group_33_final_doc.docx" afterPath="$PROJECT_DIR$/docs/group_33_final_doc.docx" />
+    </list>
     <ignored path="store.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -87,8 +90,8 @@
       <file leaf-file-name="Buyer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/store/Buyer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15368852">
-              <caret line="253" column="37" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.21516393">
+              <caret line="255" column="14" selection-start-line="255" selection-start-column="14" selection-end-line="255" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -205,7 +208,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="13" />
-    <option name="y" value="23" />
+    <option name="y" value="26" />
     <option name="width" value="756" />
     <option name="height" value="833" />
   </component>
@@ -734,7 +737,7 @@
       <workItem from="1448890490321" duration="14341000" />
       <workItem from="1448927593815" duration="4067000" />
       <workItem from="1448975782284" duration="2092000" />
-      <workItem from="1448990015593" duration="5057000" />
+      <workItem from="1448990015593" duration="5175000" />
     </task>
     <task id="LOCAL-00001" summary="added Serialization Interface">
       <created>1446654671580</created>
@@ -764,7 +767,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42555000" />
+    <option name="totallyTimeSpent" value="42673000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -776,7 +779,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="23" width="756" height="833" extended-state="0" />
+    <frame x="13" y="26" width="756" height="833" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1377,8 +1380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/store/Buyer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15368852">
-          <caret line="253" column="37" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.21516393">
+          <caret line="255" column="14" selection-start-line="255" selection-start-column="14" selection-end-line="255" selection-end-column="14" />
           <folding />
         </state>
       </provider>
